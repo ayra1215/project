@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project-ecr 
+  labels:
+    app: project-ecr 
+spec:
+  replicas: {{ .Values.deployment.replicas}}       #1
+  selector:
+    matchLabels:
+      app: project-ecr 
+  template:
+    metadata:
+      labels:
+        app: project-ecr 
+    spec:
+      containers:
+      - name: project-ecr 
+        image: 944893048172.dkr.ecr.eu-central-1.amazonaws.com/project-ecr:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8081
+          protocol: TCP
+        resources:
+          requests:
+            memory: "200Mi"
+            cpu: 0.5
+          limits:
+            memory: "400Mi"
+            cpu: 1.0     
+      imagePullSecrets:
+          - name: ecrkey
+
+        
