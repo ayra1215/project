@@ -14,7 +14,7 @@ pipeline {
                 sh "echo hello world"
 		sh "pwd"   
 		sh "ls"
-                sh "docker build -t python/$BUILD_NUMBER:v1.0 project/flask"
+                sh "docker build -t python/$BUILD_NUMBER:v1.0 ."
                 }
             }
 
