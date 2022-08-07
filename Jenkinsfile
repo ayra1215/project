@@ -3,6 +3,9 @@ pipeline {
     agent any
 
     stages{
+	    stage ('Workspace Cleanup') {
+	    cleanWs()
+	}
 	    stage('Git Checkout') {
             steps {
 		    git branch: 'main', url: 'https://github.com/ayra1215/project.git'
