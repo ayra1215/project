@@ -8,11 +8,7 @@ pipeline {
 	    cleanWs()
           }	
 	}
-	    stage('Git Checkout') {
-            steps {
-		    git branch: 'main', url: 'https://github.com/ayra1215/project.git'
-            }
-        }
+	 
         stage('build') {
             steps{
                 sh "echo hello world"
