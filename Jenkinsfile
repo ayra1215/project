@@ -16,8 +16,6 @@ pipeline {
         stage('build') {
             steps{
                 sh "echo hello world"
-		sh "pwd"
-		sh "cd project"
 		sh "pwd"   
 		sh "ls"
                 sh "docker build -t python/$BUILD_NUMBER:v1.0 project/flask"
