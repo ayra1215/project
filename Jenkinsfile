@@ -8,6 +8,11 @@ pipeline {
 	    cleanWs()
           }	
 	}
+	     stage('Git Checkout') {
+            steps {
+		    git branch: 'master', url: 'https://github.com/ayra1215/project.git'
+            }
+        }
 	 
         stage('build') {
             steps{
