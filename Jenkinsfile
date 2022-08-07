@@ -5,7 +5,7 @@ pipeline {
     stages{
 	    stage('Git Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/ayra1215/project.git'
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/ayra1215/project.git']]])
             }
         }
         stage('build') {
