@@ -22,8 +22,8 @@ pipeline {
         stage('push') {
             steps {
                 sh "aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 944893048172.dkr.ecr.eu-central-1.amazonaws.com"
-                sh "docker tag project-ecr/$BUILD_NUMBER:v1.0 944893048172.dkr.ecr.eu-central-1.amazonaws.com/project-ecr:$BUILD_NUMBER"
-                sh "docker push 944893048172.dkr.ecr.eu-central-1.amazonaws.com/project-ecr:$BUILD_NUMBER"
+                sh "docker tag python/$BUILD_NUMBER:v1.0 944893048172.dkr.ecr.eu-central-1.amazonaws.com/project-ecr:flask$BUILD_NUMBER"
+                sh "docker push 944893048172.dkr.ecr.eu-central-1.amazonaws.com/project-ecr:flask$BUILD_NUMBER"
             }
         }
 
