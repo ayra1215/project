@@ -5,13 +5,14 @@ pipeline {
     stages{
 	    stage('Git Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/ayra1215/project.git']]])
+		    git branch: 'main', url: 'https://github.com/ayra1215/project.git'
             }
         }
         stage('build') {
             steps{
                 sh "echo hello world"
 		sh "cd project/flask/"
+		sh "ls"
                 sh "docker build -t python/$BUILD_NUMBER:v1.0 ."
                 }
             }
